@@ -14,9 +14,12 @@
 
     --input: #d6dee1;
     --svg: #a3b5bd;
+
+    --text-default: #768e9a;
 }
 
 body {
+    background-color: var(--background-defautl);
     position: relative;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -33,10 +36,7 @@ body {
 .svg {
     height: 15px;
     width: 15px;
-}
-
-.container {
-    background-color: var(--background-defautl);
+    fill: var(--svg);
 }
 
 .sidebar {
@@ -57,7 +57,7 @@ body {
         display: flex;
         font-size: 1.5rem;
         margin-top: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
         gap: 15px;
         color: var(--primary);
         font-weight: 800;
@@ -68,6 +68,17 @@ body {
             width: 25px;
             fill: var(--primary);
         }
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+
+    .sidebar-subtitle {
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 25px;
     }
 }
 
@@ -87,17 +98,19 @@ body {
         position: relative;
 
         .input {
-            background-color: var(--input);
+            text-decoration-line: none;
             border: none;
             border-radius: 5px;
             height: 35px;
             width: max-content;
             padding: 0 35px 0 15px;
+            font-weight: 700;
+            color: var(--text-default);
+            background-color: var(--input);
         }
 
         .svg {
             position: absolute;
-            fill: var(--svg);
         }
 
         .svg-input {
@@ -109,6 +122,8 @@ body {
         #money-day, #money-hours {
             height: 55px;
             padding-top: 20px;
+            color: var(--primary);
+            font-weight: 800;
         }
 
         .svg-view {
@@ -125,4 +140,37 @@ body {
             margin-top: 5px;
         }
     }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+
+    .input-search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 4rem;
+
+        input {
+            border: none;
+            background-color: var(--input);
+            border-radius: 15px;
+            height: 2rem;
+            width: 250PX;
+            padding-left: 15px;
+        }
+
+        .svg-search {
+            position: absolute;
+            right: 8px;
+            rotate: 90deg;
+        }
+    }
+}
+
+.input:focus {
+    outline: none;
 }

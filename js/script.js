@@ -1,4 +1,4 @@
-import { ConvertToLocale } from './functions.js'
+import { ConvertToLocale } from './modulo.js'
 
 const moneyInput = document.querySelector('[name="money"]')
 
@@ -18,7 +18,7 @@ function CalculaSalarioDia(value) {
 
     CalculaSalarioHora(moneyDay);
 
-    target.value = 'R$ ' +  ConvertToLocale(moneyDay);
+    target.value = ConvertToLocale(moneyDay);
 }
 
 function CalculaSalarioHora(value) {
@@ -27,7 +27,7 @@ function CalculaSalarioHora(value) {
 
     console.log('Hora: ', value);
 
-    moneyHour = value / 7;
+    moneyHour = value / 8;
 
-    target.value = 'R$ ' +  ConvertToLocale(moneyHour);
+    target.value = ConvertToLocale(moneyHour);
 }
