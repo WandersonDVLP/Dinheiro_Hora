@@ -1,4 +1,4 @@
-import { ConvertToLocale } from './modulo.js'
+import { ConvertToLocale } from './Global.js'
 
 const moneyInput = document.querySelector('[name="money"]')
 
