@@ -31,3 +31,7 @@ export function CardAssemble(data){
 export function ShowCard(card){
     cardSection.innerHTML += card;
 }
+
+export function CleanView(){
+    cardSection.innerHTML = "";
+}
