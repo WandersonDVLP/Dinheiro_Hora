@@ -2,6 +2,9 @@ import { ConvertToLocale } from './Global.js'
 
 const moneyInput = document.querySelector('[name="money"]')
 
+export const workDays = 30;
+export const workHours = 9;
+
 moneyInput.addEventListener('change', (e) => {
     let money = e.target.value;
 
@@ -14,7 +17,7 @@ function CalculaSalarioDia(value) {
     let target = document.querySelector('[name="money-day"]');
     let moneyDay = 0;
 
-    moneyDay = value / 30;
+    moneyDay = value / workDays;
 
     CalculaSalarioHora(moneyDay);
 
@@ -25,9 +28,7 @@ function CalculaSalarioHora(value) {
     let target = document.querySelector('[name="money-hours"]');
     let moneyHour = 0;
 
-    console.log('Hora: ', value);
-
-    moneyHour = value / 8;
+    moneyHour = value / workHours;
 
     target.value = ConvertToLocale(moneyHour);
 }
