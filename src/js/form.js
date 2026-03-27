@@ -1,5 +1,4 @@
-import { GetData } from '../api/api.js'
-import { CardAssemble, CleanView } from './global.js'
+import { GetDataForm } from './controllers/Form_Controller.js'
 
 const form = document.getElementById('form');
 
@@ -9,13 +8,7 @@ form.addEventListener('submit', async(event) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  GetDataForm();
+  if(data.search !== ''){
+    GetDataForm(data.search);
+  }
 });
-
-export async function GetDataForm(){
-  let productsList = await GetData();
-
-  CleanView();
-
-  CardAssemble(productsList);
-}

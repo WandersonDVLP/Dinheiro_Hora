@@ -5,8 +5,8 @@ export function ConvertToLocale(value){
 }
 
 // Recebe o array de produtos, monsta e exibe os dados.
-export function CardAssemble(items){
-    items.forEach(item => {
+export function CardAssemble(item){
+    // items.forEach(item => {
         let card = `<div name="card"  class="card">
             <img src="${item.image}" alt="Teste">
 
@@ -26,7 +26,7 @@ export function CardAssemble(items){
         </div>`
 
         ShowCard(card); 
-    });
+    // });
 }
 
 export function ShowCard(card){
@@ -38,7 +38,6 @@ export function CleanView(){
 }
 
 function CalculateDays(value){
-    console.log('Price -> ', value);
     let salaryDay = document.querySelector('[name="money-day"]').value;
 
     let salaryDayFormated = CleanMoney(salaryDay);
@@ -47,7 +46,6 @@ function CalculateDays(value){
 }
 
 function CalculateHours(value){
-    console.log('valor ', value);
     let salaryHour = document.querySelector('[name="money-hours"]').value;
 
     let salaryHourFormated = CleanMoney(salaryHour);
