@@ -1,4 +1,4 @@
-import { ConvertToLocale } from './Global.js'
+import { ConvertToLocale } from './global.js'
 
 const moneyInput = document.querySelector('[name="money"]')
 

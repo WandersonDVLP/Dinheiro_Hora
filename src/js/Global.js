@@ -20,7 +20,7 @@ export function CardAssemble(items){
                     <span>${CalculateDays(item.price)} Dias</span>
 
                     <p>Horas trabalhadas</p>
-                    <span>585 Horas</span>
+                    <span>${CalculateHours(item.price)} Horas</span>
                 </div>
             </div>
         </div>`
@@ -47,7 +47,12 @@ function CalculateDays(value){
 }
 
 function CalculateHours(value){
-    let salaryHour = document.querySelector('[name="money-hour"]').value;
+    console.log('valor ', value);
+    let salaryHour = document.querySelector('[name="money-hours"]').value;
+
+    let salaryHourFormated = CleanMoney(salaryHour);
+
+    return Math.ceil(value / salaryHourFormated);
 }
 
 function CleanMoney(value){
