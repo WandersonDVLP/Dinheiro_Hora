@@ -1,4 +1,5 @@
 import { ConvertToLocale } from './global.js'
+import { ViewItens } from './controllers/Form_Controller.js'
 
 const moneyInput = document.querySelector('[name="money"]')
 
@@ -11,6 +12,8 @@ moneyInput.addEventListener('change', (e) => {
     if(money !== 0 && money !== null){
         CalculaSalarioDia(money);
     }
+
+    ViewItens();
 });
 
 function CalculaSalarioDia(value) {

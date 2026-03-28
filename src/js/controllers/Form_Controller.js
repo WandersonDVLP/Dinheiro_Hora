@@ -19,11 +19,11 @@ export async function GetDataForm(params) {
 }
 
 export function ViewItens(){
-    let itemsList = productsList;
+    let itensList = productsList;
 
     CleanView();
 
-    itemsList.forEach(item => {
+    itensList.forEach(item => {
         CardAssemble(item);
     });
 }
