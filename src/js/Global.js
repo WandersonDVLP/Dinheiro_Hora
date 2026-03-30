@@ -6,27 +6,22 @@ export function ConvertToLocale(value){
 
 // Recebe o array de produtos, monsta e exibe os dados.
 export function CardAssemble(item){
-    // items.forEach(item => {
-        let card = `<div name="card"  class="card">
-            <img src="${item.image}" alt="Teste">
+    let card = `<div name="card"  class="card">
+        <img src="${item.thumbnail}" alt="Teste">
 
-            <div class="card-body">
-                <div class="card-title">
-                    ${item.title}
-                </div>
-
-                <div class="card-subtitle">
-                    <p>Dias trabalhados</p>
-                    <span>${CalculateDays(item.price)} Dias</span>
-
-                    <p>Horas trabalhadas</p>
-                    <span>${CalculateHours(item.price)} Horas</span>
-                </div>
+        <div class="card-body">
+            <div class="card-title">
+                ${item.title}
             </div>
-        </div>`
 
-        ShowCard(card); 
-    // });
+            <div class="card-subtitle">
+                ${CalculateDays(item.price)}
+                ${CalculateHours(item.price)}
+            </div>
+        </div>
+    </div>`
+
+    ShowCard(card);
 }
 
 export function ShowCard(card){
@@ -40,17 +35,31 @@ export function CleanView(){
 function CalculateDays(value){
     let salaryDay = document.querySelector('[name="money-day"]').value;
 
-    let salaryDayFormated = CleanMoney(salaryDay);
+    if(salaryDay == ''){
+        return ConvertToLocale(value);
+    }
+    else {
+        let salaryDayFormated = CleanMoney(salaryDay);
+        let ret = Math.ceil(value / salaryDayFormated);
 
-    return Math.ceil(value / salaryDayFormated);
+        return `<p>Dias trabalhados</p>
+                <span>${ret} Dias</span>`;
+    }
 }
 
 function CalculateHours(value){
     let salaryHour = document.querySelector('[name="money-hours"]').value;
 
-    let salaryHourFormated = CleanMoney(salaryHour);
+    if(salaryHour == ''){
+        return '';
+    }
+    else {
+        let salaryHourFormated = CleanMoney(salaryHour);
+        let ret = Math.ceil(value / salaryHourFormated);
 
-    return Math.ceil(value / salaryHourFormated);
+        return `<p>Horas trabalhadas</p>
+                <span>${ret} Horas</span>`
+    }
 }
 
 function CleanMoney(value){

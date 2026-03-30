@@ -8,7 +8,5 @@ form.addEventListener('submit', async(event) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  if(data.search !== ''){
-    GetDataForm(data.search);
-  }
+  GetDataForm(data.search);
 });

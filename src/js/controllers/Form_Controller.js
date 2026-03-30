@@ -13,7 +13,7 @@ export async function GetDataForm(params) {
 
     lastSearch = cleanParameter;
 
-    productsList = await GetData();
+    productsList = await GetData(cleanParameter);
 
     ViewItens();
 }
