@@ -1,5 +1,5 @@
 import { GetData } from '../../api/api.js'
-import { CardAssemble, CleanView } from '../global.js'
+import { CardAssemble, CleanView, ShowMessage } from '../functions.js'
 
 let lastSearch = '';
 let productsList = [];
@@ -15,7 +15,15 @@ export async function GetDataForm(params) {
 
     productsList = await GetData(cleanParameter);
 
-    ViewItens();
+    console.log('list -> ', productsList);
+
+    if(productsList.length <= 0){
+        CleanView();
+        ShowMessage();
+    }
+    else {
+        ViewItens();
+    }
 }
 
 export function ViewItens(){

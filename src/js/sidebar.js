@@ -1,4 +1,4 @@
-import { ConvertToLocale } from './global.js'
+import { ConvertToLocale } from './functions.js'
 import { ViewItens } from './controllers/Form_Controller.js'
 
 const moneyInput = document.querySelector('[name="money"]')
