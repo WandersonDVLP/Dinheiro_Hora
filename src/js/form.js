@@ -1,6 +1,8 @@
-import { GetDataForm } from './controllers/Form_Controller.js'
+import { GetDataForm, Preview, Next} from './controllers/Form_Controller.js'
 
 const form = document.getElementById('form');
+const btn_preview = document.querySelector('[name="preview"]');
+const btn_next = document.querySelector('[name="next"]');
 
 form.addEventListener('submit', async(event) => {
   event.preventDefault();
@@ -10,3 +12,11 @@ form.addEventListener('submit', async(event) => {
 
   GetDataForm(data.search);
 });
+
+btn_preview.addEventListener('click', () => {
+  Preview();
+})
+
+btn_next.addEventListener('click', () => {
+  Next();
+})
