@@ -1,37 +1,56 @@
 import { ConvertToLocale } from './functions.js'
 import { ViewItens } from './controllers/Form_Controller.js'
 
+const btnCalculate = document.querySelector('[name="btn_Calculate"]');
 const moneyInput = document.querySelector('[name="money"]')
+const weekInput = document.querySelector('[name="weekHours"]')
+const daysInput = document.querySelector('[name="dayHours"]')
 
-export const workDays = 30;
-export const workHours = 9;
-
-moneyInput.addEventListener('change', (e) => {
-    let money = e.target.value;
-
-    if(money !== 0 && money !== null){
-        CalculaSalarioDia(money);
-    }
-
-    ViewItens();
+btnCalculate.addEventListener('click', () => {
+    Calcular();
 });
 
-function CalculaSalarioDia(value) {
-    let target = document.querySelector('[name="money-day"]');
-    let moneyDay = 0;
+function ShowSalaryHour(value) {
+    // Pega o campo de exibiçao de valores por hora.
+    let target = document.querySelector('[name="money-hours"]');
 
-    moneyDay = value / workDays;
-
-    CalculaSalarioHora(moneyDay);
-
-    target.value = ConvertToLocale(moneyDay);
+    target.value = ConvertToLocale(value);
 }
 
-function CalculaSalarioHora(value) {
-    let target = document.querySelector('[name="money-hours"]');
-    let moneyHour = 0;
+function ShowSalaryDay(value) {
+    // Pega o campo de exibição de valores por dia.
+    let target = document.querySelector('[name="money-day"]');
 
-    moneyHour = value / workHours;
+    target.value = ConvertToLocale(value);
+}
 
-    target.value = ConvertToLocale(moneyHour);
+function CalculaValores(salary, hoursWeek, hoursDay){
+    // Encontra o divisor mensal (horas semanais * 5)
+    // O fator 5 é a convenção para incluir o descanso remunerado (DSR)
+    const divideMonts = hoursWeek * 5;
+
+    // Calcula o valor da hora
+    const valueHours = salary / divideMonts;
+
+    // Calcula o valor do dia (baseado na jornada real diária)
+    const valueDays = valueHours * hoursDay;
+
+    ShowSalaryHour(valueHours.toFixed(2));
+    ShowSalaryDay(valueDays.toFixed(2));
+}
+
+function Calcular(){
+    let money = moneyInput.value;
+    let week = weekInput.value;
+    let day = daysInput.value;
+
+    if(money !== 0 && money !== "" && week !== 0 && week !== "" && day !== 0 && day !== ""){        
+        CalculaValores(money, week, day);
+    }
+    else {
+        alert('Preencha todos os campos.');
+        return;
+    }
+
+    ViewItens();   
 }
