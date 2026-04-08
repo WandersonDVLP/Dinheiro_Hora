@@ -35,10 +35,46 @@
 
                 <div class="inputs">
                     <input class="input"  name="weekHours" type="number" required placeholder="Horas trabalhadas (Semanal)">
+
+                    <button class="btn-popover" popovertarget="week-popover">
+                        <svg class="svg svg-input svg-question" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5l0 3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zM224 368a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                    </button>
+
+                    <!--{ POPOVER de ajuda para calculo, semanal}-->
+                    <div id="week-popover" popover>
+                        <span>Calculo de horas semanais trabalhadas</span>
+
+                        <ul>
+                            <li>HS = Hora semanal</li>
+                            <li>HD = Hora diaria</li>
+                            <li>DT = Dias trabalhados</li>
+                        </ul>
+                        <br>
+
+                        <b>Calculo:</b>
+
+                        <p><b>HS</b> = HD x DT</p>
+                        <br>
+
+                        <p><b>Ex:</b> HS = 7 horas x 5 dias</p>
+
+                        <span>HS = 35 Horas semanais</span>
+                    </div>
                 </div>
 
                 <div class="inputs">
                     <input class="input" name="dayHours" type="number" required placeholder="Horas trabalhadas (Diaria)">
+
+                    <button class="btn-popover" popovertarget="day-popover">
+                        <svg class="svg svg-input svg-question" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5l0 3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zM224 368a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                    </button>
+                    
+                    <!--{ POPOVER de ajuda para calculo, diario}-->
+                    <div id="day-popover" popover>
+                        <span>Quantas horas voce trabalha por dia</span>
+                        <br>
+                        <p><b>Obseração:</b> O horario de de almoço não entra como calculo de horas trabalahadas</p>
+                    </div>
                 </div>
 
                 <h3>Voce recebe</h3>

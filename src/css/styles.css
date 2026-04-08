@@ -48,6 +48,10 @@ body {
     fill: var(--primary);
 }
 
+.svg-question {
+    cursor: pointer;
+}
+
 .message {
     display: flex;
     flex-direction: column;
@@ -168,7 +172,7 @@ body {
             right: 10px;
         }
 
-        span {
+        & > span {
             position: absolute;
             color: var(--primary);
             top: 5px;
@@ -300,6 +304,68 @@ body {
         width: 27px;
         fill: var(--primary);
         cursor: pointer;
+    }
+}
+
+.btn-popover {
+    position: absolute;
+    border: none;
+}
+
+/* Estado Base (Fechado) */
+[popover] {
+    transition: 
+        opacity 0.3s, 
+        transform 0.3s, 
+        display 0.3s allow-discrete, 
+        overlay 0.3s allow-discrete;
+    opacity: 0;
+    /* Centraliza e diminui o tamanho */
+    transform: translate(-50%, -50%) scale(0.9); 
+    
+    /* Garante centralização em relação à tela */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0; /* Remove a margem automática nativa que causa o conflito */
+    
+    /* Estilos Visuais */
+    width: 300px;
+    padding: 1rem;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    background-color: white; /* Garante que o fundo não seja transparente */
+}
+
+/* Estado Aberto */
+[popover]:popover-open {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+[popover]::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+[popover] {
+    font-size: 12px;
+
+    span {
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    ul {
+        margin-top: 8px;
+        margin-left: 8px;
+    }
+}
+
+@starting-style {
+    [popover]:popover-open {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+        /* transform: scale(0.9); */
     }
 }
 

@@ -35,8 +35,8 @@ function CalculaValores(salary, hoursWeek, hoursDay){
     // Calcula o valor do dia (baseado na jornada real diária)
     const valueDays = valueHours * hoursDay;
 
-    ShowSalaryHour(valueHours.toFixed(2));
-    ShowSalaryDay(valueDays.toFixed(2));
+    ShowSalaryHour(valueHours);
+    ShowSalaryDay(valueDays);
 }
 
 function Calcular(){

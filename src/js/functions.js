@@ -1,3 +1,4 @@
+// Area aonde seram renderizados os itens
 const cardSection = document.querySelector('[name="card-section"]');
 
 export function ConvertToLocale(value){
