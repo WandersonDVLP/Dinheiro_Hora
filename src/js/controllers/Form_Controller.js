@@ -1,5 +1,5 @@
 import { GetData } from '../../api/api.js'
-import { CardAssemble, CleanView, ShowMessage } from '../functions.js'
+import { CleanView, ShowMessage, ViewItens } from '../functions.js'
 
 let lastSearch = '';
 let productsList = [];
@@ -8,7 +8,7 @@ let count = 0;
 export async function GetDataForm(params) {
     let cleanParameter = params.trim();
 
-    if(cleanParameter === lastSearch){
+    if(cleanParameter == lastSearch){
         return;
     }
 
@@ -21,18 +21,18 @@ export async function GetDataForm(params) {
         ShowMessage();
     }
     else {
-        ViewItens();
+        ViewItensController();
     }
 }
 
-export function ViewItens(){
+export function ViewItensController(){
     let itensList = productsList;
 
-    CleanView();
+    ViewItens(itensList);
 
-    itensList.forEach(item => {
-        CardAssemble(item);
-    });
+    // itensList.forEach(item => {
+    //     CardAssemble(item);
+    // });
 }
 
 export async function Preview(){
@@ -42,9 +42,11 @@ export async function Preview(){
         return;
     }
 
+    console.log('preview itens [footer] -> ', count);
+
     productsList = await GetData({skip: count});
 
-    ViewItens();
+    ViewItensController();
 }
 
 export async function Next(){
@@ -52,5 +54,5 @@ export async function Next(){
 
     productsList = await GetData({skip: count});
 
-    ViewItens();
+    ViewItensController();
 }

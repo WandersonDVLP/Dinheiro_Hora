@@ -41,6 +41,14 @@ export function ShowMessage(){
     RenderItem(render);
 }
 
+export function ViewItens(listproducts){
+    CleanView();
+
+    listproducts.forEach(item => {
+        CardAssemble(item);
+    });
+}
+
 function CalculateDays(value){
     let salaryDay = document.querySelector('[name="money-day"]').value;
     let salaryDayFormated = CleanMoney(salaryDay);

@@ -1,5 +1,5 @@
 import { ConvertToLocale } from './functions.js'
-import { ViewItens } from './controllers/Form_Controller.js'
+import { ViewItensController } from './controllers/Form_Controller.js'
 
 const btnCalculate = document.querySelector('[name="btn_Calculate"]');
 const moneyInput = document.querySelector('[name="money"]')
@@ -52,5 +52,5 @@ function Calcular(){
         return;
     }
 
-    ViewItens();   
+    ViewItensController();   
 }
