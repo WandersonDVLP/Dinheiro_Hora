@@ -39,6 +39,7 @@ export async function Preview(){
     count-=10;
 
     if(count < 0){
+        count = 0;
         return;
     }
 
